@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: dbs 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: dbs
+  template:
+    metadata:
+      labels:
+        app: dbs 
+    spec:
+      containers:
+        - name: dbs 
+          image: causedppcontainer.azurecr.io/dbs
+          ports:
+          - containerPort: 80
